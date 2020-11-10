@@ -1,0 +1,15 @@
+.form-check {
+  margin: 2px;
+}
+
+.task-priority, .task-limit {
+  display: flex;
+}
+
+.task-delete {
+  margin: 0 0 0 auto;
+}
+
+#task-template {
+  display: none;
+}
