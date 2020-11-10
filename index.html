@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="ja">
+    
+<head>
+  <meta charset="utf-8">
+  <title>TO DO LIST</title>
+  
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+  
+  <!-- Font Awesomeのアイコンフォント -->
+  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+  
+  <!-- 自サイトのCSS -->
+  <link rel="stylesheet" href="main.css">
+</head>
+<body>
+  <header>
+    <h1 class="header-title ml-2">TO DO LIST</h1>
+  </header>
+  <div class="bg-dark rounded mx-3">
+    <form id="task-form" class="p-3">
+      <div class="row">
+        
+        <div class="col-xl-5 mb-2">
+          <div class="mb-1 small text-white">
+            内容<span class="badge badge-danger ml-2">※必須</span>
+          </div>
+          <div>
+            <input id="task-content" type="text" class="form-control" placeholder="タスクを入力してください" required>
+          </div>
+        </div>
+        
+        <div class="col-xl row">
+          <div class="col-sm-auto col-md-auto col-xl">
+            <div class="mb-1 small text-white">
+              優先度<span class="badge badge-danger ml-2">※必須</span>
+            </div>
+            <div class="form-check text-white form-inline">
+              <input type="radio" name="priority" value="低"><div class="custom-control-indicator px-1">低</div>
+              <input type="radio" name="priority" value="中" checked><div class="custom-control-indicator px-1">中</div>
+              <input type="radio" name="priority" value="高"><div class="custom-control-indicator px-1">高</div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="col-xl">
+          <div class="mb-1 small text-white">
+            期限<span class="badge badge-danger ml-2">※必須</span>
+          </div>
+          <input type="date" name="limit" class="form-control" id="today" required>
+        </div>
+        
+        <div class="col-sm-auto col-lg col-xl pt-4">
+          <button type="submit" class="btn btn-primary" id="add-task-button">追加</button>
+          <button type="reset" class="btn btn-secondary clear-button ml-1">クリア</button>
+        </div>
+        
+      </div>
+    </form>
+  </div>
+  
+  <div id="task-list"></div>
+  
+<!-- タスクテンプレート -->
+  <div id="task-template">
+    <div class="task-item">
+      <div class="card mt-2 mx-3">
+        <div class="task-header card-header"></div>
+        <div class="card-body p-2">
+          <div class="task-info row">
+            <div class="task-priority col-xl-auto col-md-auto col-sm-auto">
+              <div class="priority-title font-weight-bold">優先度：</div>
+              <div class="priority-value"></div>
+            </div>
+            <div class="task-limit col-xl-auto col-md-auto col-sm-auto">
+              <div class="limit-title font-weight-bold ml-3">期限：</div>
+              <div class="limit-value"></div>
+            </div>
+            <div class="task-delete col-xl-auto col-md-auto col-sm-auto">
+              <button type="button" class="btn btn-danger btn-sm delete-button">完了</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- タスクテンプレート -->
+  
+  
+
+  <script src="https://www.gstatic.com/firebasejs/6.2.0/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/6.2.0/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/6.2.0/firebase-database.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/6.2.0/firebase-storage.js"></script>
+  
+  <script>
+    // Your web app's Firebase configuration
+    const firebaseConfig = {
+      apiKey: "AIzaSyAZ-6pRCREr4Ai_Jqnpf_2xtUiMsx6pxYE",
+      authDomain: "todolist-2e887.firebaseapp.com",
+      databaseURL: "https://todolist-2e887.firebaseio.com",
+      projectId: 'todolist-2e887',
+      storageBucket: "todolist-2e887.appspot.com",
+    };
+    // Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
+  </script>
+  
+  <!-- jQuery -->
+  <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+
+  <!-- Popper.js -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+  
+  <!-- Bootstrap JS -->
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+  
+  <script src="main.js"></script>
+</body>
+</html>
