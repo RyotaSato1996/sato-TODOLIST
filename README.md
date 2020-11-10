@@ -1,1 +1,1 @@
-# sato-TODOLIST
+基本的な機能を付けたToDoListです。
